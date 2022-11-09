@@ -7,7 +7,7 @@ using YlvasKaffelager.DataModels;
 
 namespace YlvasKaffelager
 {
-    public class DbContext
+    public class DbContext : IDbContext
     {
         public List<Coffee> Coffees { get; set; } = new List<Coffee>
         {

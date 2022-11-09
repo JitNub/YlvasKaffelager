@@ -1,7 +1,11 @@
+using YlvasKaffelager;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+// Dependency Injection for Database connection
+builder.Services.AddScoped<IDbContext, DbContext>();
 
 var app = builder.Build();
 
