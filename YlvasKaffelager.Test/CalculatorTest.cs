@@ -12,7 +12,7 @@ namespace YlvasKaffelager.Test
 
         public CalculatorTest()
         {
-            _calculator = new Calculator();
+            _sut = new Calculator();
         }
 
         [Fact]
@@ -25,7 +25,7 @@ namespace YlvasKaffelager.Test
             var expected = 95;
 
             // Act
-            var actual = _calculator.Get(amount, price);
+            var actual = _sut.Get(amount, price);
 
             // Assert
             Assert.Equal(expected, actual);

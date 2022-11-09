@@ -14,11 +14,15 @@ namespace YlvasKaffelager.Controllers
     {
         public DbContext _dbContext { get; set; }
         public int NumberOfOrders { get; set; }
+
+        private Calculator _calculator;
+
         public OrdersController()
         {
             _dbContext = new DbContext();
 
             NumberOfOrders = 0;
+            _calculator = new Calculator();
         }
         public IActionResult Index()
         {
@@ -41,7 +45,7 @@ namespace YlvasKaffelager.Controllers
                 Email = model.Email,
                 Brand = coffee.Brand,
                 Amount = amount,
-                Total = (amount * coffee.Price)
+                Total = _calculator.GetTotal(amount, coffee.Price)
             };
 
             return View("ViewOrder", viewModel);
